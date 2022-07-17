@@ -1,0 +1,18 @@
+void preorderIterativeApproach(BinaryTree<Integer>root)
+    {
+        Stack<BinaryTree<Integer>>a=new Stack<>();
+        a.push(root);
+        while(!a.isEmpty())
+        {
+           BinaryTree<Integer>node=a.pop();
+           System.out.println(node.data);
+           if(node.right!=null)
+           {
+            a.push(node.right);
+           }
+           if(node.left!=null)
+           {
+            a.push(node.left);
+           }
+        }
+    }
