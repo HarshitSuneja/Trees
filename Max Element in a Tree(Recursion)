@@ -1,0 +1,10 @@
+void maxElementInTree(BinaryTree<Integer>root)
+    {
+      if(root==null)
+      {
+        return;
+      }
+      max=Math.max(max,root.data);
+      maxElementInTree(root.left);
+      maxElementInTree(root.right);
+    }
