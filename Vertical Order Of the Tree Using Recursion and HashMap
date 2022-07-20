@@ -1,0 +1,43 @@
+public class BinaryTreeOperations{
+   void VerticalOrder(BinaryTree<Integer>root,int distance)
+    {
+         if(root==null)
+         {
+            return;
+         }
+         if(map.containsKey(distance))
+         {
+            map.get(distance).add(root.data);
+         }
+         else
+         {
+            map.put(distance,new ArrayList<>());
+            map.get(distance).add(root.data);
+         }
+         VerticalOrder(root.left, distance-1);
+         VerticalOrder(root.right, distance+1);
+    }
+    void veritcalOrderhelper(BinaryTree<Integer>root)
+    {
+        int distance=0;
+        VerticalOrder(root, distance);
+    }
+    void PrintVerticalOrder()
+    {
+        for(Map.Entry<Integer, ArrayList<Integer>> entry : map.entrySet())
+        {
+            System.out.println("Iterating the key: "+ entry.getKey());
+            for(Integer node : entry.getValue())
+            {
+                System.out.println(node);
+            }
+        }
+    }
+  }
+public class BinaryTreeExample {
+    public static void main(String[] args) {
+        BinaryTreeOperations opr = new BinaryTreeOperations();
+       opr.veritcalOrderhelper(root);
+       opr.PrintVerticalOrder();
+    }
+}
