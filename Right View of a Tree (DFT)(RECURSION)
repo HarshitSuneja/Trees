@@ -1,0 +1,9 @@
+void PrintRightView(BinaryTree<Integer>root)
+    {
+        if(root==null)
+        {
+            return;
+        }
+        System.out.println(root.data);
+        PrintRightView(root.right);
+    }
